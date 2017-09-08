@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta id="meta" name="viewport"
+content="width=device-width; initial-scale=1.0" />
+<title>Alarm Clock</title>
+<style>
+h1,h2,h3,p {text-align:center;}
+
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
+</style>
+
+<meta name="HandheldFriendly" content="true">
+
+</head>
+
+<body>
+	<h1>Alarm Clock</h1>
+
+	<form method="post" action="{{ url_for('save') }}">
+	  
+	  <p>Select an alarm time:
+	  	<input type="time" name="alarm_time">
+		<input type="checkbox" name="check"> Store to favourites? <br><br>
+	  	<input type="submit" name="submit" value="Set Alarm">	 
+	  	<input type="submit" name="submit" value="Cancel Alarm"></p>
+	
+	</form>
+
+	{% if filename %}
+		<img class="displayed" src="{{ url_for('send_potd', filename=filename) }}" width="300"><br>
+		<h3> Deep learning-based image recognition</h3>
+		<p>{{conf_0}} % confidence that this is a picture of a {{label_0}}</p>
+		<p>{{conf_1}} % confidence that this is a picture of a {{label_1}}</p>
+	{% else %}
+	  	<h2>no image for whatever reason</h1>
+	{% endif %}
+
+</body>
+</html>
+
+ 
